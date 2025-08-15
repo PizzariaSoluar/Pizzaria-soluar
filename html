@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzaria Soluar</title>
+<style>
+    :root {
+        --verde-musgo: #556B2F;
+        --vinho: #800020;
+        --destaque: #25D366;
+        --fundo: #f5f5f5;
+    }
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--fundo);
+        margin: 0;
+    }
+    header {
+        background: linear-gradient(135deg, var(--verde-musgo), var(--vinho));
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+    header p {
+        margin: 5px 0 0;
+        font-size: 0.9rem;
+    }
+    nav {
+        background-color: var(--vinho);
+        display: flex;
+        overflow-x: auto;
+    }
+    nav a {
+        flex: none;
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    nav a:hover {
+        background-color: var(--verde-musgo);
+    }
+    section {
+        max-width: 900px;
+        margin: auto;
+        padding: 15px;
+    }
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    .card h2 {
+        color: var(--vinho);
+        border-bottom: 2px solid var(--verde-musgo);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+    select, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+    textarea {
+        resize: vertical;
+        min-height: 60px;
+    }
+    .btn-whatsapp {
+        display: block;
+        background-color: var(--destaque);
+        color: white;
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        margin-top: 15px;
+    }
+    .btn-whatsapp:hover {
+        background-color: #1ebe5d;
+    }
+    /* Responsivo */
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .card {
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🍕 Pizzaria Soluar</h1>
+    <p>Rua Exemplo, 123 - Centro | Pagamento: Dinheiro, Cartão, Pix</p>
+</header>
+
+<nav>
+    <a href="#pizzas">Pizzas</a>
+    <a href="#tiragosto">Tira Gosto</a>
+    <a href="#arroz">Arroz</a>
+    <a href="#espaguetes">Espaguetes</a>
+    <a href="#lanches">Lanches</a>
+    <a href="#sucos">Sucos</a>
+</nav>
+
+<section id="pizzas" class="card">
+    <h2>Monte sua Pizza</h2>
+    <label>Tamanho:</label>
+    <select id="tamanhoPizza" onchange="mostrarSabores()">
+        <option value="">Selecione</option>
+        <option value="Gigante - 70">Gigante - R$ 70,00</option>
+        <option value="Família - 57">Família - R$ 57,00</option>
+        <option value="Grande - 47">Grande - R$ 47,00</option>
+        <option value="Média - 35">Média - R$ 35,00</option>
+        <option value="Brotinho - 25">Brotinho - R$ 25,00</option>
+        <option value="Mini - 13">Mini - R$ 13,00</option>
+    </select>
+
+    <div id="sabores" style="display:none;">
+        <label>Sabor 1:</label>
+        <select id="sabor1"></select>
+
+        <label>Sabor 2 (opcional):</label>
+        <select id="sabor2"></select>
+
+        <label>Borda:</label>
+        <select id="borda">
+            <option value="Sem borda">Sem borda</option>
+            <option value="Catupiry">Catupiry</option>
+        </select>
+
+        <label>Ingredientes extras/remover:</label>
+        <textarea id="ingredientes" placeholder="Ex: sem cebola, extra queijo..."></textarea>
+    </div>
+</section>
+
+<section id="tiragosto" class="card">
+    <h2>Tira Gosto</h2>
+    <p>Fritas – R$ 25 | Macaxeira – R$ 45 | Peixe Empanado – R$ 35 | Fígado Acebolado – R$ 25 | Carne c/ Batata – R$ 40 (meia/inteira) | Filé de Frango c/ Fritas – R$ 35 | Calabresa c/ Fritas – R$ 35 | Caldos – R$ 10</p>
+</section>
+
+<section id="arroz" class="card">
+    <h2>Arroz na Chapa</h2>
+    <label>Escolha:</label>
+    <select>
+        <option>Frango Caipira - R$ 18,00</option>
+        <option>Calabresa c/ Bacon - R$ 18,00</option>
+        <option>Misto - R$ 18,00</option>
+        <option>Bacon - R$ 18,00</option>
+    </select>
+
+    <label>Porção:</label>
+    <select>
+        <option>Inteira</option>
+        <option>Meia</option>
+    </select>
+</section>
+
+<section id="espaguetes" class="card">
+    <h2>Espaguetes</h2>
+    <label>Escolha:</label>
+    <select>
+        <option>Bolonhesa - R$ 18,00</option>
+        <option>Bacon - R$ 18,00</option>
+        <option>Calabresa - R$ 18,00</option>
+        <option>Frango - R$ 18,00</option>
+        <option>Misto - R$ 18,00</option>
+    </select>
+
+    <label>Porção:</label>
+    <select>
+        <option>Inteiro</option>
+        <option>Meio</option>
+    </select>
+</section>
+
+<section id="lanches" class="card">
+    <h2>Lanches</h2>
+    <p>Misto Quente – R$ 8 | X-Burguer – R$ 12 | X-Salada – R$ 14 | X-Tudo – R$ 17 | X-Frango – R$ 13 | X-Soluar – R$ 24 | Artesanal – R$ 22</p>
+</section>
+
+<section id="sucos" class="card">
+    <h2>Sucos</h2>
+    <p>Goiaba – R$ 8 | Acerola – R$ 8 | Maracujá – R$ 8 | Abacaxi – R$ 8 | Abacaxi com Hortelã – R$ 8</p>
+</section>
+
+<a id="btnWhats" class="btn-whatsapp" href="#" target="_blank">📲 Fazer pedido no WhatsApp</a>
+
+<script>
+const listaSabores = [
+    "Champion – Champion, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Mussarela – Mussarela, Tomate, Azeitona, Milho, Cebola, Orégano",
+    "Palmito – Palmito, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Calabresa – Calabresa, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Portuguesa – Presunto, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Bacon – Bacon, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Bolonhesa – Carne Moída, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Atum – Atum, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Moda da Casa – Presunto, Calabresa, Tomate, Azeitona, Cebola, Orégano, Mussarela",
+    "Caipira – Frango, Mussarela, Tomate, Azeitona, Milho, Cebola, Orégano",
+    "Frango – Frango, Mussarela, Tomate, Azeitona, Cebola, Orégano",
+    "Bacalhau – Bacalhau, Mussarela, Tomate, Pimentão, Cebola, Orégano",
+    "Carne Seca – Carne Seca, Carne, Tomate, Cebola, Pimentão, Azeitona"
+];
+
+function mostrarSabores(){
+    let tamanho = document.getElementById("tamanhoPizza").value;
+    let divSabores = document.getElementById("sabores");
+    let sabor1 = document.getElementById("sabor1");
+    let sabor2 = document.getElementById("sabor2");
+
+    sabor1.innerHTML = "";
+    sabor2.innerHTML = "";
+
+    if(tamanho){
+        listaSabores.forEach(s => {
+            let opt1 = document.createElement("option");
+            opt1.textContent = s;
+            let opt2 = document.createElement("option");
+            opt2.textContent = s;
+            sabor1.appendChild(opt1);
+            sabor2.appendChild(opt2);
+        });
+        divSabores.style.display = "block";
+    } else {
+        divSabores.style.display = "none";
+    }
+}
+
+document.getElementById("btnWhats").addEventListener("click", function(){
+    let tamanho = document.getElementById("tamanhoPizza").value;
+    let sabor1 = document.getElementById("sabor1").value;
+    let sabor2 = document.getElementById("sabor2").value;
+    let borda = document.getElementById("borda").value;
+    let ingredientes = document.getElementById("ingredientes").value;
+
+    let mensagem = `Olá! Quero pedir uma pizza:\nTamanho: ${tamanho}\nSabor 1: ${sabor1}\nSabor 2: ${sabor2 || "Nenhum"}\nBorda: ${borda}\nObs: ${ingredientes}`;
+    this.href = `https://wa.me/5533999342180?text=${encodeURIComponent(mensagem)}`;
+});
+</script>
+
+</body>
+</html>
