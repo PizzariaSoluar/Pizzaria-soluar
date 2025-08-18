@@ -1,263 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pizzaria Soluar</title>
-<style>
-    :root {
-        --verde-musgo: #556B2F;
-        --vinho: #800020;
-        --destaque: #25D366;
-        --fundo: #f5f5f5;
-    }
+  <meta charset="UTF-8">
+  <title>Lanchonete e Pizzaria Soluar</title>
+  <style>
     body {
-        font-family: 'Segoe UI', sans-serif;
-        background-color: var(--fundo);
-        margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
+
     header {
-        background: linear-gradient(135deg, var(--verde-musgo), var(--vinho));
-        color: white;
-        text-align: center;
-        padding: 20px;
+      background: linear-gradient(135deg, #4b5320, #8b0000);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
     }
+
     header h1 {
-        margin: 0;
-        font-size: 2rem;
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
     }
+
     header p {
-        margin: 5px 0 0;
-        font-size: 0.9rem;
+      margin-top: 8px;
+      font-size: 1.2rem;
     }
-    nav {
-        background-color: var(--vinho);
-        display: flex;
-        overflow-x: auto;
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
     }
-    nav a {
-        flex: none;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        font-weight: bold;
-        white-space: nowrap;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #8b0000;
     }
-    nav a:hover {
-        background-color: var(--verde-musgo);
-    }
-    section {
-        max-width: 900px;
-        margin: auto;
-        padding: 15px;
-    }
+
     .card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 15px;
-        margin-bottom: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      margin-bottom: 25px;
     }
-    .card h2 {
-        color: var(--vinho);
-        border-bottom: 2px solid var(--verde-musgo);
-        padding-bottom: 5px;
-        margin-bottom: 15px;
+
+    .form-section {
+      margin-bottom: 18px;
     }
+
     label {
-        font-weight: bold;
-        display: block;
-        margin-top: 10px;
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
     }
-    select, textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        margin-top: 5px;
+
+    select, input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 12px;
+      font-size: 1rem;
     }
-    textarea {
-        resize: vertical;
-        min-height: 60px;
+
+    .inline-inputs {
+      display: flex;
+      gap: 15px;
     }
-    .btn-whatsapp {
-        display: block;
-        background-color: var(--destaque);
-        color: white;
-        font-size: 1.1rem;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 8px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-        margin-top: 15px;
+
+    .inline-inputs > div {
+      flex: 1;
     }
-    .btn-whatsapp:hover {
-        background-color: #1ebe5d;
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    /* Responsivo */
-    @media (max-width: 600px) {
-        header h1 {
-            font-size: 1.5rem;
-        }
-        .card {
-            padding: 10px;
-        }
+
+    button:hover {
+      background: #a83232;
     }
-</style>
+
+    footer {
+      background: #4b5320;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    footer strong {
+      color: #ffd700;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Lanchonete e Pizzaria Soluar</h1>
+    <p>Sabor e qualidade desde sempre 🍕</p>
+  </header>
 
-<header>
-    <h1>🍕 Pizzaria Soluar</h1>
-    <p>Rua Exemplo, 123 - Centro | Pagamento: Dinheiro, Cartão, Pix</p>
-</header>
+  <main>
+    <div class="card">
+      <h2>Monte sua Pizza</h2>
 
-<nav>
-    <a href="#pizzas">Pizzas</a>
-    <a href="#tiragosto">Tira Gosto</a>
-    <a href="#arroz">Arroz</a>
-    <a href="#espaguetes">Espaguetes</a>
-    <a href="#lanches">Lanches</a>
-    <a href="#sucos">Sucos</a>
-</nav>
-
-<section id="pizzas" class="card">
-    <h2>Monte sua Pizza</h2>
-    <label>Tamanho:</label>
-    <select id="tamanhoPizza" onchange="mostrarSabores()">
-        <option value="">Selecione</option>
-        <option value="Gigante - 70">Gigante - R$ 70,00</option>
-        <option value="Família - 57">Família - R$ 57,00</option>
-        <option value="Grande - 47">Grande - R$ 47,00</option>
-        <option value="Média - 35">Média - R$ 35,00</option>
-        <option value="Brotinho - 25">Brotinho - R$ 25,00</option>
-        <option value="Mini - 13">Mini - R$ 13,00</option>
-    </select>
-
-    <div id="sabores" style="display:none;">
-        <label>Sabor 1:</label>
-        <select id="sabor1"></select>
-
-        <label>Sabor 2 (opcional):</label>
-        <select id="sabor2"></select>
-
-        <label>Borda:</label>
-        <select id="borda">
-            <option value="Sem borda">Sem borda</option>
-            <option value="Catupiry">Catupiry</option>
+      <div class="form-section">
+        <label for="tamanho">Tamanho:</label>
+        <select id="tamanho" name="tamanho">
+          <option>Gigante – R$ 70,00</option>
+          <option>Família – R$ 57,00</option>
+          <option>Grande – R$ 47,00</option>
+          <option>Média – R$ 35,00</option>
+          <option>Brotinho – R$ 25,00</option>
+          <option>Mini – R$ 13,00</option>
         </select>
+      </div>
 
-        <label>Ingredientes extras/remover:</label>
-        <textarea id="ingredientes" placeholder="Ex: sem cebola, extra queijo..."></textarea>
+      <div class="form-section inline-inputs">
+        <div>
+          <label for="sabor1">Sabor 1:</label>
+          <input type="text" id="sabor1" name="sabor1" placeholder="Digite o primeiro sabor">
+        </div>
+        <div>
+          <label for="sabor2">Sabor 2 (opcional):</label>
+          <input type="text" id="sabor2" name="sabor2" placeholder="Digite o segundo sabor">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label for="borda">Borda:</label>
+        <select id="borda" name="borda">
+          <option>Sem borda</option>
+          <option>Catupiry</option>
+        </select>
+      </div>
+
+      <div class="form-section">
+        <label for="extras">Ingredientes extras / remover:</label>
+        <input type="text" id="extras" name="extras" placeholder="Ex: adicionar queijo, retirar cebola, etc.">
+      </div>
+
+      <div class="form-section">
+        <label for="endereco">Endereço de entrega:</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro...">
+      </div>
+
+      <div class="form-section">
+        <label for="pagamento">Forma de pagamento:</label>
+        <select id="pagamento" name="pagamento">
+          <option>Dinheiro</option>
+          <option>Pix</option>
+          <option>Cartão de Crédito</option>
+          <option>Cartão de Débito</option>
+        </select>
+        <input type="text" id="troco" name="troco" placeholder="Se dinheiro, precisa de troco? Quanto?">
+      </div>
+
+      <button type="submit">Fazer Pedido</button>
     </div>
-</section>
+  </main>
 
-<section id="tiragosto" class="card">
-    <h2>Tira Gosto</h2>
-    <p>Fritas – R$ 25 | Macaxeira – R$ 45 | Peixe Empanado – R$ 35 | Fígado Acebolado – R$ 25 | Carne c/ Batata – R$ 40 (meia/inteira) | Filé de Frango c/ Fritas – R$ 35 | Calabresa c/ Fritas – R$ 35 | Caldos – R$ 10</p>
-</section>
-
-<section id="arroz" class="card">
-    <h2>Arroz na Chapa</h2>
-    <label>Escolha:</label>
-    <select>
-        <option>Frango Caipira - R$ 18,00</option>
-        <option>Calabresa c/ Bacon - R$ 18,00</option>
-        <option>Misto - R$ 18,00</option>
-        <option>Bacon - R$ 18,00</option>
-    </select>
-
-    <label>Porção:</label>
-    <select>
-        <option>Inteira</option>
-        <option>Meia</option>
-    </select>
-</section>
-
-<section id="espaguetes" class="card">
-    <h2>Espaguetes</h2>
-    <label>Escolha:</label>
-    <select>
-        <option>Bolonhesa - R$ 18,00</option>
-        <option>Bacon - R$ 18,00</option>
-        <option>Calabresa - R$ 18,00</option>
-        <option>Frango - R$ 18,00</option>
-        <option>Misto - R$ 18,00</option>
-    </select>
-
-    <label>Porção:</label>
-    <select>
-        <option>Inteiro</option>
-        <option>Meio</option>
-    </select>
-</section>
-
-<section id="lanches" class="card">
-    <h2>Lanches</h2>
-    <p>Misto Quente – R$ 8 | X-Burguer – R$ 12 | X-Salada – R$ 14 | X-Tudo – R$ 17 | X-Frango – R$ 13 | X-Soluar – R$ 24 | Artesanal – R$ 22</p>
-</section>
-
-<section id="sucos" class="card">
-    <h2>Sucos</h2>
-    <p>Goiaba – R$ 8 | Acerola – R$ 8 | Maracujá – R$ 8 | Abacaxi – R$ 8 | Abacaxi com Hortelã – R$ 8</p>
-</section>
-
-<a id="btnWhats" class="btn-whatsapp" href="#" target="_blank">📲 Fazer pedido no WhatsApp</a>
-
-<script>
-const listaSabores = [
-    "Champion – Champion, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Mussarela – Mussarela, Tomate, Azeitona, Milho, Cebola, Orégano",
-    "Palmito – Palmito, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Calabresa – Calabresa, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Portuguesa – Presunto, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Bacon – Bacon, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Bolonhesa – Carne Moída, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Atum – Atum, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Moda da Casa – Presunto, Calabresa, Tomate, Azeitona, Cebola, Orégano, Mussarela",
-    "Caipira – Frango, Mussarela, Tomate, Azeitona, Milho, Cebola, Orégano",
-    "Frango – Frango, Mussarela, Tomate, Azeitona, Cebola, Orégano",
-    "Bacalhau – Bacalhau, Mussarela, Tomate, Pimentão, Cebola, Orégano",
-    "Carne Seca – Carne Seca, Carne, Tomate, Cebola, Pimentão, Azeitona"
-];
-
-function mostrarSabores(){
-    let tamanho = document.getElementById("tamanhoPizza").value;
-    let divSabores = document.getElementById("sabores");
-    let sabor1 = document.getElementById("sabor1");
-    let sabor2 = document.getElementById("sabor2");
-
-    sabor1.innerHTML = "";
-    sabor2.innerHTML = "";
-
-    if(tamanho){
-        listaSabores.forEach(s => {
-            let opt1 = document.createElement("option");
-            opt1.textContent = s;
-            let opt2 = document.createElement("option");
-            opt2.textContent = s;
-            sabor1.appendChild(opt1);
-            sabor2.appendChild(opt2);
-        });
-        divSabores.style.display = "block";
-    } else {
-        divSabores.style.display = "none";
-    }
-}
-
-document.getElementById("btnWhats").addEventListener("click", function(){
-    let tamanho = document.getElementById("tamanhoPizza").value;
-    let sabor1 = document.getElementById("sabor1").value;
-    let sabor2 = document.getElementById("sabor2").value;
-    let borda = document.getElementById("borda").value;
-    let ingredientes = document.getElementById("ingredientes").value;
-
-    let mensagem = `Olá! Quero pedir uma pizza:\nTamanho: ${tamanho}\nSabor 1: ${sabor1}\nSabor 2: ${sabor2 || "Nenhum"}\nBorda: ${borda}\nObs: ${ingredientes}`;
-    this.href = `https://wa.me/5533999342180?text=${encodeURIComponent(mensagem)}`;
-});
-</script>
-
+  <footer>
+    <p><strong>Endereço:</strong> Rua Belo Horizonte, nº 84, Bairro Centro</p>
+    <p><strong>Telefone/WhatsApp:</strong> (33) 99993-42180</p>
+    <p><strong>Horário de atendimento:</strong> 18:30 às 01:30</p>
+    <p><strong>Dias de funcionamento:</strong> Terça a Domingo</p>
+    <p><strong>Direção:</strong> José Maria e Adriane</p>
+    <p style="margin-top:15px; font-style: italic;">
+      A Lanchonete e Pizzaria Soluar oferece pizzas saborosas, atendimento de qualidade e um ambiente acolhedor. Venha experimentar e se apaixonar pelo nosso sabor!
+    </p>
+  </footer>
 </body>
 </html>
