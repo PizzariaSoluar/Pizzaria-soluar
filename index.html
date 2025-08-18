@@ -99,20 +99,6 @@
       background: #a83232;
     }
 
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 20px;
-      text-align: center;
-      text-decoration: none;
-      background-color: #25D366;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      width: 100%;
-    }
-
     footer {
       background: #4b5320;
       color: white;
@@ -139,230 +125,193 @@
   <main>
     <div class="card">
       <h2>Monte seu Pedido</h2>
-       <div class="form-section">
-      <label for="pizza">Pizza:</label>
-      <select id="pizza">
-        <option value="">Nenhuma</option>
-        <option>Gigante – R$ 70,00</option>
-        <option>Família – R$ 57,00</option>
-        <option>Grande – R$ 47,00</option>
-        <option>Média – R$ 35,00</option>
-        <option>Brotinho – R$ 25,00</option>
-        <option>Mini – R$ 13,00</option>
-      </select>
-    </div>
 
-    <div class="inline-inputs">
-      <div>
-        <label for="sabor1">Sabor 1:</label>
-        <input type="text" id="sabor1" placeholder="Digite o primeiro sabor">
+      <!-- Pizza -->
+      <div class="form-section">
+        <label for="pizza">Pizza:</label>
+        <select id="pizza">
+          <option value="">Nenhuma</option>
+          <option>Gigante – R$ 70,00</option>
+          <option>Família – R$ 57,00</option>
+          <option>Grande – R$ 47,00</option>
+          <option>Média – R$ 35,00</option>
+          <option>Brotinho – R$ 25,00</option>
+          <option>Mini – R$ 13,00</option>
+        </select>
       </div>
-      <div>
-        <label for="sabor2">Sabor 2 (opcional):</label>
-        <input type="text" id="sabor2" placeholder="Digite o segundo sabor">
+
+      <!-- Sabores da Pizza -->
+      <div class="inline-inputs">
+        <div>
+          <label for="sabor1">Sabor 1:</label>
+          <select id="sabor1">
+            <option value="">Escolha o sabor 1</option>
+            <option>Frango c/ catupiry – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Mussarela – mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
+            <option>Palmito – palmito, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Calabresa – calabresa, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Portuguesa – presunto, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Bacon – bacon, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Bolonhesa – carne moída, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Atum – atum, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Moda da Casa – presunto, calabresa, tomate, azeitona, cebola, pimentão, orégano, mussarela</option>
+            <option>Caipira – frango, mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
+            <option>Frango – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sabor2">Sabor 2 (opcional):</label>
+          <select id="sabor2">
+            <option value="">Nenhum</option>
+            <option>Frango c/ catupiry – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Mussarela – mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
+            <option>Palmito – palmito, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Calabresa – calabresa, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Portuguesa – presunto, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Bacon – bacon, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Bolonhesa – carne moída, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Atum – atum, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+            <option>Moda da Casa – presunto, calabresa, tomate, azeitona, cebola, pimentão, orégano, mussarela</option>
+            <option>Caipira – frango, mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
+            <option>Frango – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="form-section">
-      <label for="borda">Borda:</label>
-      <select id="borda">
-        <option>Sem borda</option>
-        <option>Catupiry</option>
-      </select>
-    </div>
+      <!-- Borda -->
+      <div class="form-section">
+        <label for="borda">Borda:</label>
+        <select id="borda">
+          <option>Sem borda</option>
+          <option>Catupiry</option>
+        </select>
+      </div>
 
-    <div class="form-section">
-      <label for="tiraGosto">Tira Gosto:</label>
-      <select id="tiraGosto">
-        <option value="">Nenhum</option>
-        <option>Fritas – R$ 25,00</option>
-        <option>Macaxeira – R$ 45,00</option>
-        <option>Peixe Empanado – R$ 35,00</option>
-        <option>Fígado Acebolado – R$ 25,00</option>
-        <option>Carne c/ Batata – R$ 40,00</option>
-        <option>Filé de Frango c/ Fritas – R$ 35,00</option>
-        <option>Calabresa c/ Fritas – R$ 35,00</option>
-        <option>Caldos (frango e feijão) – R$ 10,00</option>
-      </select>
-    </div>
+      <!-- Observações para Pizza -->
+      <div class="form-section">
+        <label for="obsPizza">Observações / Extras (Pizza):</label>
+        <textarea id="obsPizza" placeholder="Ex: sem cebola, adicionar bacon..."></textarea>
+      </div>
+      <!-- Espaguete -->
+      <div class="form-section">
+        <label for="espaguete">Espaguete:</label>
+        <select id="espaguete">
+          <option value="">Nenhum</option>
+          <option>Bolonhesa – R$ 18,00</option>
+          <option>Bacon – R$ 18,00</option>
+          <option>Calabresa – R$ 18,00</option>
+          <option>Frango – R$ 18,00</option>
+          <option>Misto – R$ 18,00</option>
+        </select>
+      </div>
 
-    <div class="form-section">
-      <label for="lanche">Lanche:</label>
-      <select id="lanche">
-        <option value="">Nenhum</option>
-        <option>Misto Quente – R$ 8,00</option>
-        <option>Misto com Ovo – R$ 9,00</option>
-        <option>X-Bauru – R$ 10,00</option>
-        <option>X-Burguer – R$ 12,00</option>
-        <option>X-Egg’s – R$ 14,00</option>
-        <option>X-Salada – R$ 14,00</option>
-        <option>X-Bacon – R$ 15,00</option>
-        <option>X-Tudo – R$ 17,00</option>
-        <option>X-Americano – R$ 12,00</option>
-        <option>X-Calabresa – R$ 14,00</option>
-        <option>X-Frango – R$ 13,00</option>
-        <option>X-Soluar – R$ 24,00</option>
-        <option>Artesanal – R$ 22,00</option>
-        <option>X-Caturity - R$ 13,00</option>
-        <option>Hamburguer - R$ 9,00</option>
-        <option>X-Filé- R$ 22,00</option>
-      </select>
-    </div>
+      <div class="form-section">
+        <label for="obsEspaguete">Observações / Extras (Espaguete):</label>
+        <textarea id="obsEspaguete" placeholder="Ex: sem cebola, adicionar queijo..."></textarea>
+      </div>
 
-    <div class="form-section">
-      <label for="estrogonofe">Estrogonofe:</label>
-      <select id="estrogonofe">
-        <option value="">Nenhum</option>
-        <option>Frango – R$ 24,00</option>
-      </select>
-    </div>
+      <!-- Arroz na Chapa -->
+      <div class="form-section">
+        <label for="arrozChapa">Arroz na Chapa:</label>
+        <select id="arrozChapa">
+          <option value="">Nenhum</option>
+          <option>Frango Caipira – R$ 18,00</option>
+          <option>Calabresa c/ Bacon – R$ 18,00</option>
+          <option>Misto – R$ 18,00</option>
+          <option>Bacon – R$ 18,00</option>
+        </select>
+      </div>
 
-    <div class="form-section">
-      <label for="arrozChapa">Arroz na Chapa:</label>
-      <select id="arrozChapa">
-        <option value="">Nenhum</option>
-        <option>Frango Caipira – R$ 18,00</option>
-        <option>Calabresa c/ Bacon – R$ 18,00</option>
-        <option>Misto – R$ 18,00</option>
-        <option>Bacon – R$ 18,00</option>
-      </select>
-    </div>
+      <div class="form-section">
+        <label for="obsArroz">Observações / Extras (Arroz):</label>
+        <textarea id="obsArroz" placeholder="Ex: sem pimentão, com mais milho..."></textarea>
+      </div>
 
-    <div class="form-section">
-      <label for="omelete">Omelete:</label>
-      <select id="omelete">
-        <option value="">Nenhum</option>
-        <option>Misto – R$ 15,00</option>
-        <option>Frango – R$ 15,00</option>
-        <option>Bolonhesa – R$ 15,00</option>
-        <option>Vegetariano – R$ 15,00</option>
-        <option>Mixta – R$ 15,00</option>
-      </select>
-    </div>
+      <!-- Suco -->
+      <div class="form-section">
+        <label for="suco">Suco:</label>
+        <select id="suco">
+          <option value="">Nenhum</option>
+          <option>Goiaba – R$ 8,00</option>
+          <option>Acerola – R$ 8,00</option>
+          <option>Maracujá - R$ 8,00</option>
+          <option>Abacaxi - R$ 8,00</option>
+          <option>Abacaxi com hortelã - R$ 8,00</option>
+        </select>
+      </div>
 
-    <div class="form-section">
-      <label for="parmegiana">Filé à Parmegiana:</label>
-      <select id="parmegiana">
-        <option value="">Nenhum</option>
-        <option>Frango – R$ 24,00</option>
-      </select>
-    </div>
+      <!-- Endereço -->
+      <div class="form-section">
+        <label for="endereco">Endereço de entrega:</label>
+        <input type="text" id="endereco" placeholder="Rua, número, bairro...">
+      </div>
 
-    <div class="form-section">
-      <label for="espaguete">Espaguete:</label>
-      <select id="espaguete">
-        <option value="">Nenhum</option>
-        <option>Bolonhesa – R$ 18,00</option>
-        <option>Bacon – R$ 18,00</option>
-        <option>Calabresa – R$ 18,00</option>
-        <option>Frango – R$ 18,00</option>
-        <option>Misto – R$ 18,00</option>
-      </select>
-    </div>
+      <!-- Pagamento -->
+      <div class="form-section">
+        <label for="pagamento">Forma de pagamento:</label>
+        <select id="pagamento" onchange="toggleTroco()">
+          <option>Dinheiro</option>
+          <option>Pix</option>
+          <option>Cartão de Crédito</option>
+          <option>Cartão de Débito</option>
+        </select>
+        <input type="text" id="troco" placeholder="Se dinheiro, precisa de troco? Quanto?" style="display:none; margin-top: 8px;">
+      </div>
 
-    <div class="form-section">
-      <label for="panqueca">Panqueca na Chapa:</label>
-      <select id="panqueca">
-        <option value="">Nenhum</option>
-        <option>Mista – R$ 24,00</option>
-        <option>Frango – R$ 24,00</option>
-        <option>Bolonhesa – R$ 24,00</option>
-        <option>Carne – R$ 24,00</option>
-      </select>
-    </div>
+      <!-- Botão -->
+      <button onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
+    </div> <!-- fecha .card -->
 
-    <div class="form-section">
-      <label for="suco">Suco:</label>
-      <select id="suco">
-        <option value="">Nenhum</option>
-        <option>Goiaba – R$ 8,00</option>
-        <option>Acerola – R$ 8,00</option>
-        <option>Maracujá - R$ 8,00</option>
-        <option>Abacaxi - R$ 8,00</option>
-        <option>Abacaxi com hortelã - R$ 8,00</option>
-      </select>
-    </div>
+    <footer>
+      <p><strong>Endereço:</strong> Rua Belo Horizonte, nº 84, Bairro Centro</p>
+      <p><strong>Telefone/WhatsApp:</strong> (33) 99934-2180</p>
+      <p><strong>Horário de atendimento:</strong> 18:30 às 01:30</p>
+      <p><strong>Dias de funcionamento:</strong> Terça a Domingo</p>
+      <p><strong>Direção:</strong> José Maria e Adriane</p>
+      <p style="margin-top:15px; font-style: italic;">
+        A Lanchonete e Pizzaria Soluar oferece pizzas saborosas, atendimento de qualidade e um ambiente acolhedor. Venha experimentar e se apaixonar pelo nosso sabor!
+      </p>
+    </footer>
 
-    <div class="form-section">
-      <label for="extras">Observações / Extras:</label>
-      <textarea id="extras" placeholder="Ex: Sem cebola, adicionar bacon, etc."></textarea>
-    </div>
+    <!-- Scripts -->
+    <script>
+      function toggleTroco() {
+        const pagamento = document.getElementById('pagamento').value;
+        const trocoInput = document.getElementById('troco');
+        trocoInput.style.display = pagamento === 'Dinheiro' ? 'block' : 'none';
+        if (pagamento !== 'Dinheiro') trocoInput.value = '';
+      }
 
-    <div class="form-section">
-      <label for="endereco">Endereço de entrega:</label>
-      <input type="text" id="endereco" placeholder="Rua, número, bairro...">
-    </div>
+      document.addEventListener('DOMContentLoaded', toggleTroco);
 
-    <div class="form-section">
-  <label for="pagamento">Forma de pagamento:</label>
-  <select id="pagamento" onchange="toggleTroco()">
-    <option>Dinheiro</option>
-    <option>Pix</option>
-    <option>Cartão de Crédito</option>
-    <option>Cartão de Débito</option>
-  </select>
-  <input type="text" id="troco" placeholder="Se dinheiro, precisa de troco? Quanto?" style="display:none; margin-top: 8px;">
-</div>
+      function get(id) {
+        return document.getElementById(id).value.trim();
+      }
 
-<script>
-  function toggleTroco() {
-    const pagamento = document.getElementById('pagamento').value;
-    const trocoInput = document.getElementById('troco');
-    if (pagamento === 'Dinheiro') {
-      trocoInput.style.display = 'block';
-    } else {
-      trocoInput.style.display = 'none';
-      trocoInput.value = ''; // limpa o campo se não for dinheiro
-    }
-  }
+      function enviarPedido() {
+        const pedido = [
+          `🍕 *PIZZA:* ${get("pizza")}`,
+          get("sabor1") ? `• Sabor 1: ${get("sabor1")}` : "",
+          get("sabor2") ? `• Sabor 2: ${get("sabor2")}` : "",
+          `• Borda: ${get("borda")}`,
+          get("obsPizza") ? `📝 Obs Pizza: ${get("obsPizza")}` : "",
+          get("espaguete") ? `🍝 *Espaguete:* ${get("espaguete")}` : "",
+          get("obsEspaguete") ? `📝 Obs Espaguete: ${get("obsEspaguete")}` : "",
+          get("arrozChapa") ? `🍚 *Arroz na Chapa:* ${get("arrozChapa")}` : "",
+          get("obsArroz") ? `📝 Obs Arroz: ${get("obsArroz")}` : "",
+          get("suco") ? `🥤 *Suco:* ${get("suco")}` : "",
+          `📍 *Endereço:* ${get("endereco")}`,
+          `💳 *Pagamento:* ${get("pagamento")}`,
+          get("troco") ? `💵 *Troco para:* ${get("troco")}` : ""
+        ];
 
-  // Executa na carga da página para garantir que o campo esteja escondido inicialmente
-  document.addEventListener('DOMContentLoaded', toggleTroco);
-</script>
+        const texto = encodeURIComponent(pedido.filter(Boolean).join("\n"));
+        const numero = "5533999702202"; // Seu número com DDI
 
-    <button onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
-  </div> <!-- Fecha .card -->
-  <footer>
-    <p><strong>Endereço:</strong> Rua Belo Horizonte, nº 84, Bairro Centro</p>
-    <p><strong>Telefone/WhatsApp:</strong> (33) 99934-2180</p>
-    <p><strong>Horário de atendimento:</strong> 18:30 às 01:30</p>
-    <p><strong>Dias de funcionamento:</strong> Terça a Domingo</p>
-    <p><strong>Direção:</strong> José Maria e Adriane</p>
-    <p style="margin-top:15px; font-style: italic;">
-      A Lanchonete e Pizzaria Soluar oferece pizzas saborosas, atendimento de qualidade e um ambiente acolhedor. Venha experimentar e se apaixonar pelo nosso sabor!
-    </p>
-  </footer>
-
-  <script>
-    function enviarPedido() {
-      const get = id => document.getElementById(id).value;
-
-      const pedido = [
-        `🍕 *PIZZA:* ${get("pizza")}`,
-        `• Sabor 1: ${get("sabor1")}`,
-        get("sabor2") ? `• Sabor 2: ${get("sabor2")}` : "",
-        `• Borda: ${get("borda")}`,
-
-        get("tiraGosto") ? `🍽 *Tira Gosto:* ${get("tiraGosto")}` : "",
-        get("lanche") ? `🥪 *Lanche:* ${get("lanche")}` : "",
-        get("estrogonofe") ? `🍛 *Estrogonofe:* ${get("estrogonofe")}` : "",
-        get("arrozChapa") ? `🍚 *Arroz na Chapa:* ${get("arrozChapa")}` : "",
-        get("omelete") ? `🍳 *Omelete:* ${get("omelete")}` : "",
-        get("parmegiana") ? `🍽 *Filé à Parmegiana:* ${get("parmegiana")}` : "",
-        get("espaguete") ? `🍝 *Espaguete:* ${get("espaguete")}` : "",
-        get("panqueca") ? `🥞 *Panqueca:* ${get("panqueca")}` : "",
-        get("suco") ? `🥤 *Suco:* ${get("suco")}` : "",
-        get("extras") ? `📝 *Observações:* ${get("extras")}` : "",
-        `📍 *Endereço:* ${get("endereco")}`,
-        `💳 *Pagamento:* ${get("pagamento")}`,
-        get("troco") ? `💵 *Troco para:* ${get("troco")}` : ""
-      ];
-
-      const texto = encodeURIComponent(pedido.filter(Boolean).join("\n"));
-      const numero = "5533999702202"; // Número com DDI do Brasil (55)
-
-      window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
-    }
-  </script>
+        window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+      }
+    </script>
+  </main>
 </body>
 </html>
