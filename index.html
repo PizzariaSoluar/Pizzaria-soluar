@@ -294,15 +294,31 @@
     </div>
 
     <div class="form-section">
-      <label for="pagamento">Forma de pagamento:</label>
-      <select id="pagamento">
-        <option>Dinheiro</option>
-        <option>Pix</option>
-        <option>Cartão de Crédito</option>
-        <option>Cartão de Débito</option>
-      </select>
-      <input type="text" id="troco" placeholder="Se dinheiro, precisa de troco? Quanto?">
-    </div>
+  <label for="pagamento">Forma de pagamento:</label>
+  <select id="pagamento" onchange="toggleTroco()">
+    <option>Dinheiro</option>
+    <option>Pix</option>
+    <option>Cartão de Crédito</option>
+    <option>Cartão de Débito</option>
+  </select>
+  <input type="text" id="troco" placeholder="Se dinheiro, precisa de troco? Quanto?" style="display:none; margin-top: 8px;">
+</div>
+
+<script>
+  function toggleTroco() {
+    const pagamento = document.getElementById('pagamento').value;
+    const trocoInput = document.getElementById('troco');
+    if (pagamento === 'Dinheiro') {
+      trocoInput.style.display = 'block';
+    } else {
+      trocoInput.style.display = 'none';
+      trocoInput.value = ''; // limpa o campo se não for dinheiro
+    }
+  }
+
+  // Executa na carga da página para garantir que o campo esteja escondido inicialmente
+  document.addEventListener('DOMContentLoaded', toggleTroco);
+</script>
 
     <button onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
   </div> <!-- Fecha .card -->
@@ -343,7 +359,7 @@
       ];
 
       const texto = encodeURIComponent(pedido.filter(Boolean).join("\n"));
-      const numero = "5533999342180"; // Número com DDI do Brasil (55)
+      const numero = "5533999702202"; // Número com DDI do Brasil (55)
 
       window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
     }
