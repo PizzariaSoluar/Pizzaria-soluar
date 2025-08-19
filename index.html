@@ -2,316 +2,176 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lanchonete e Pizzaria Soluar</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: linear-gradient(135deg, #4b5320, #8b0000);
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    header p {
-      margin-top: 8px;
-      font-size: 1.2rem;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #8b0000;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 25px;
-      margin-bottom: 25px;
-    }
-
-    .form-section {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    select, input[type="text"], input[type="tel"], textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 12px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    .inline-inputs {
-      display: flex;
-      gap: 15px;
-    }
-
-    .inline-inputs > div {
-      flex: 1;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      background: #8b0000;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #a83232;
-    }
-
-    footer {
-      background: #4b5320;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 40px;
-    }
-
-    footer strong {
-      color: #ffd700;
-    }
-
-    footer p {
-      margin: 6px 0;
-    }
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; }
+    header { background: #800020; color: white; padding: 15px; text-align: center; }
+    h2 { color: #2e4d2c; cursor: pointer; }
+    .card, .categoria { background: white; padding: 15px; margin: 10px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .btn { background: #2e4d2c; color: white; border: none; padding: 6px 10px; border-radius: 5px; cursor: pointer; margin: 2px 0; }
+    .btn:hover { background: #3e6d3c; }
+    #carrinho { position: fixed; top: 20px; right: 20px; background: white; border: 1px solid #ccc; padding: 15px; width: 300px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    #carrinho h3 { margin-top: 0; }
+    ul { padding-left: 20px; }
+    input, select { width: 95%; padding: 6px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+    .itens { display: none; margin-top: 5px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lanchonete e Pizzaria Soluar</h1>
-    <p>Sabor e qualidade desde sempre 🍕</p>
-  </header>
 
-  <main>
-    <div class="card">
-      <h2>Monte seu Pedido</h2>
+<header>
+  <h1>Lanchonete e Pizzaria Soluar</h1>
+  <p>Atendimento das 18:30 às 01:00</p>
+</header>
 
-      <!-- Pizza -->
-      <div class="form-section">
-        <label for="pizza">Pizza:</label>
-        <select id="pizza">
-          <option value="">Nenhuma</option>
-          <option>Gigante – R$ 70,00</option>
-          <option>Família – R$ 57,00</option>
-          <option>Grande – R$ 47,00</option>
-          <option>Média – R$ 35,00</option>
-          <option>Brotinho – R$ 25,00</option>
-          <option>Mini – R$ 13,00</option>
-        </select>
-      </div>
+<!-- Carrinho -->
+<div id="carrinho">
+  <h3>Carrinho</h3>
+  <ul id="itens"></ul>
+  <p>Subtotal: R$ <span id="subtotal">0</span>,00</p>
 
-      <!-- Sabores da Pizza -->
-      <div class="inline-inputs">
-        <div>
-          <label for="sabor1">Sabor 1:</label>
-          <select id="sabor1">
-            <option value="">Escolha o sabor 1</option>
-            <option>Frango c/ catupiry – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Mussarela – mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
-            <option>Palmito – palmito, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Calabresa – calabresa, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Portuguesa – presunto, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Bacon – bacon, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Bolonhesa – carne moída, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Atum – atum, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Moda da Casa – presunto, calabresa, tomate, azeitona, cebola, pimentão, orégano, mussarela</option>
-            <option>Caipira – frango, mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
-            <option>Frango – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-          </select>
-        </div>
+  <p>
+    <label><input type="radio" name="entrega" value="0" checked onchange="atualizarCarrinho()"> Retirar no balcão (R$ 0,00)</label><br>
+    <label><input type="radio" name="entrega" value="2" onchange="atualizarCarrinho()"> Entrega (R$ 2,00)</label>
+  </p>
 
-        <div>
-          <label for="sabor2">Sabor 2 (opcional):</label>
-          <select id="sabor2">
-            <option value="">Nenhum</option>
-            <option>Frango c/ catupiry – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Mussarela – mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
-            <option>Palmito – palmito, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Calabresa – calabresa, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Portuguesa – presunto, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Bacon – bacon, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Bolonhesa – carne moída, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Atum – atum, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-            <option>Moda da Casa – presunto, calabresa, tomate, azeitona, cebola, pimentão, orégano, mussarela</option>
-            <option>Caipira – frango, mussarela, tomate, azeitona, milho, cebola, pimentão, orégano</option>
-            <option>Frango – frango, mussarela, tomate, azeitona, cebola, pimentão, orégano</option>
-          </select>
-        </div>
-      </div>
+  <p><strong>Total: R$ <span id="total">0</span>,00</strong></p>
 
-      <!-- Borda -->
-      <div class="form-section">
-        <label for="borda">Borda:</label>
-        <select id="borda">
-          <option>Sem borda</option>
-          <option>Catupiry</option>
-        </select>
-      </div>
+  <label for="endereco">Endereço (se entrega):</label>
+  <input type="text" id="endereco" placeholder="Rua, nº, bairro">
 
-      <!-- Observações para Pizza -->
-      <div class="form-section">
-        <label for="obsPizza">Observações / Extras (Pizza):</label>
-        <textarea id="obsPizza" placeholder="Ex: sem cebola, sem pímentão, adicionar bacon..."></textarea>
-      </div>
-      <!-- Espaguete -->
-      <div class="form-section">
-        <label for="espaguete">Espaguete:</label>
-        <select id="espaguete">
-          <option value="">Nenhum</option>
-          <option>Bolonhesa – R$ 18,00</option>
-          <option>Bacon – R$ 18,00</option>
-          <option>Calabresa – R$ 18,00</option>
-          <option>Frango – R$ 18,00</option>
-          <option>Misto – R$ 18,00</option>
-        </select>
-      </div>
+  <label for="pagamento">Forma de pagamento:</label>
+  <select id="pagamento">
+    <option value="">Selecione</option>
+    <option value="Pix">Pix</option>
+    <option value="Cartão">Cartão</option>
+    <option value="Dinheiro">Dinheiro</option>
+  </select>
 
-      <div class="form-section">
-        <label for="obsEspaguete">Observações / Extras (Espaguete):</label>
-        <textarea id="obsEspaguete" placeholder="Ex: sem cebola, menos molho, adicionar queijo..."></textarea>
-      </div>
+  <label for="troco">Troco (se dinheiro):</label>
+  <input type="text" id="troco" placeholder="Ex: 50,00">
 
-      <!-- Arroz na Chapa -->
-      <div class="form-section">
-        <label for="arrozChapa">Arroz na Chapa:</label>
-        <select id="arrozChapa">
-          <option value="">Nenhum</option>
-          <option>Frango Caipira – R$ 18,00</option>
-          <option>Calabresa c/ Bacon – R$ 18,00</option>
-          <option>Misto – R$ 18,00</option>
-          <option>Bacon – R$ 18,00</option>
-        </select>
-      </div>
+  <button class="btn" onclick="finalizarPedido()">Finalizar Pedido</button>
+</div>
 
-      <div class="form-section">
-        <label for="obsArroz">Observações / Extras (Arroz):</label>
-        <textarea id="obsArroz" placeholder="Ex: sem  queijo, sem cebola, adicionar queijo..."></textarea>
-      </div>
+<main>
 
-      <!-- Suco -->
-      <div class="form-section">
-        <label for="suco">Suco:</label>
-        <select id="suco">
-          <option value="">Nenhum</option>
-          <option>Goiaba – R$ 8,00</option>
-          <option>Acerola – R$ 8,00</option>
-          <option>Maracujá - R$ 8,00</option>
-          <option>Abacaxi - R$ 8,00</option>
-          <option>Abacaxi com hortelã - R$ 8,00</option>
-        </select>
-      </div>
+<!-- Pizzas -->
+<section class="card">
+  <h2>Pizzas</h2>
+  <p>Calabresa - R$ 30 <button class="btn" onclick="adicionar('Pizza Calabresa',30)">+</button></p>
+  <p>Frango com Catupiry - R$ 35 <button class="btn" onclick="adicionar('Pizza Frango c/ Catupiry',35)">+</button></p>
+  <p>Quatro Queijos - R$ 38 <button class="btn" onclick="adicionar('Pizza Quatro Queijos',38)">+</button></p>
+</section>
 
-      <!-- Endereço -->
-      <div class="form-section">
-        <label for="endereco">Endereço de entrega:</label>
-        <input type="text" id="endereco" placeholder="Rua, número, bairro...">
-      </div>
+<!-- Espaguetes -->
+<section class="card">
+  <h2 onclick="toggleCategoria('espaguetes')">Espaguetes</h2>
+  <div id="espaguetes" class="itens">
+    <p>Espaguete à Bolonhesa - R$ 25 <button class="btn" onclick="adicionar('Espaguete à Bolonhesa',25)">+</button></p>
+    <p>Espaguete ao Alho e Óleo - R$ 22 <button class="btn" onclick="adicionar('Espaguete Alho e Óleo',22)">+</button></p>
+  </div>
+</section>
 
-      <!-- Pagamento -->
-      <div class="form-section">
-        <label for="pagamento">Forma de pagamento:</label>
-        <select id="pagamento" onchange="toggleTroco()">
-          <option>Dinheiro</option>
-          <option>Pix</option>
-          <option>Cartão de Crédito</option>
-          <option>Cartão de Débito</option>
-        </select>
-        <input type="text" id="troco" placeholder="Se dinheiro, precisa de troco? Quanto?" style="display:none; margin-top: 8px;">
-      </div>
+<!-- Sucos / Refrigerantes -->
+<section class="categoria">
+  <h2 onclick="toggleCategoria('sucos')">🍹 Sucos / Refrigerantes</h2>
+  <div id="sucos" class="itens">
+    <h3>Latas</h3>
+    <p>Coca-Cola: R$ 6 <button class="btn" onclick="adicionar('Coca-Cola Lata',6)">+</button></p>
+    <p>Coca-Cola Zero, Fanta Laranja, Fanta Uva, Sprite, Kuat: R$ 5 <button class="btn" onclick="adicionar('Refrigerante Lata (outros)',5)">+</button></p>
 
-      <!-- Botão -->
-      <button onclick="enviarPedido()">Enviar Pedido via WhatsApp</button>
-    </div> <!-- fecha .card -->
+    <h3>600ml (R$ 7 cada)</h3>
+    <p>Coca-Cola, Sprite, Fanta Uva, Fanta Laranja, Kuat <button class="btn" onclick="adicionar('Refrigerante 600ml',7)">+</button></p>
 
-    <footer>
-      <p><strong>Endereço:</strong> Rua Belo Horizonte, nº 84, Bairro Centro</p>
-      <p><strong>Telefone/WhatsApp:</strong> (33) 99934-2180</p>
-      <p><strong>Horário de atendimento:</strong> 18:30 às 01:30</p>
-      <p><strong>Dias de funcionamento:</strong> Terça a Domingo</p>
-      <p><strong>Direção:</strong> José Maria e Adriane</p>
-      <p style="margin-top:15px; font-style: italic;">
-        A Lanchonete e Pizzaria Soluar oferece pizzas saborosas, atendimento de qualidade e um ambiente acolhedor. Venha experimentar e se apaixonar pelo nosso sabor!
-      </p>
-    </footer>
+    <h3>1 Litro (R$ 10 cada)</h3>
+    <p>Coca-Cola, Guaraná <button class="btn" onclick="adicionar('Refrigerante 1L',10)">+</button></p>
 
-    <!-- Scripts -->
-    <script>
-      function toggleTroco() {
-        const pagamento = document.getElementById('pagamento').value;
-        const trocoInput = document.getElementById('troco');
-        trocoInput.style.display = pagamento === 'Dinheiro' ? 'block' : 'none';
-        if (pagamento !== 'Dinheiro') trocoInput.value = '';
+    <h3>2 Litros</h3>
+    <p>Coca-Cola: R$ 15 <button class="btn" onclick="adicionar('Coca-Cola 2L',15)">+</button></p>
+    <p>Coca-Cola Zero: R$ 15 <button class="btn" onclick="adicionar('Coca-Cola Zero 2L',15)">+</button></p>
+    <p>Kuat: R$ 10 <button class="btn" onclick="adicionar('Kuat 2L',10)">+</button></p>
+    <p>Fanta Uva: R$ 12 <button class="btn" onclick="adicionar('Fanta Uva 2L',12)">+</button></p>
+    <p>Fanta Laranja: R$ 12 <button class="btn" onclick="adicionar('Fanta Laranja 2L',12)">+</button></p>
+    <p>Sprite: R$ 12 <button class="btn" onclick="adicionar('Sprite 2L',12)">+</button></p>
+    <p>Mate Couro: R$ 8 <button class="btn" onclick="adicionar('Mate Couro 2L',8)">+</button></p>
+  </div>
+</section>
+
+</main>
+
+<script>
+  let carrinho = [];
+  let subtotal = 0;
+
+  function adicionar(item, preco) {
+    carrinho.push({item, preco});
+    subtotal += preco;
+    atualizarCarrinho();
+  }
+
+  function atualizarCarrinho() {
+    let lista = document.getElementById('itens');
+    lista.innerHTML = '';
+    carrinho.forEach((prod,i)=>{
+      lista.innerHTML += `<li>${prod.item} - R$ ${prod.preco},00 <button onclick="remover(${i})">x</button></li>`;
+    });
+    let entrega = parseFloat(document.querySelector('input[name="entrega"]:checked').value);
+    document.getElementById('subtotal').innerText = subtotal;
+    document.getElementById('total').innerText = subtotal + entrega;
+  }
+
+  function remover(index) {
+    subtotal -= carrinho[index].preco;
+    carrinho.splice(index,1);
+    atualizarCarrinho();
+  }
+
+  function finalizarPedido() {
+    let entrega = parseFloat(document.querySelector('input[name="entrega"]:checked').value);
+    let entregaTexto = entrega===0 ? "Retirar no balcão (R$ 0,00)" : "Entrega (R$ 2,00)";
+
+    let texto = "Olá, gostaria de fazer o pedido:\n\n";
+    carrinho.forEach(p=>{ texto += `- ${p.item} (R$ ${p.preco},00)\n`; });
+
+    texto += `\nSubtotal: R$ ${subtotal},00`;
+    texto += `\n${entregaTexto}`;
+    texto += `\nTotal: R$ ${subtotal + entrega},00`;
+
+    if(entrega===2){
+      let endereco = document.getElementById("endereco").value;
+      if(endereco.trim()!==""){
+        texto += `\n\nEndereço: ${endereco}`;
+      }else{
+        alert("Por favor, preencha o endereço para entrega.");
+        return;
       }
+    }
 
-      document.addEventListener('DOMContentLoaded', toggleTroco);
-
-      function get(id) {
-        return document.getElementById(id).value.trim();
+    let pagamento = document.getElementById("pagamento").value;
+    if(pagamento){
+      texto += `\nPagamento: ${pagamento}`;
+      if(pagamento.toLowerCase()==="dinheiro"){
+        let troco = document.getElementById("troco").value;
+        if(troco && troco.trim()!==""){
+          texto += ` (troco para R$ ${troco})`;
+        }else{
+          texto += " (sem necessidade de troco)";
+        }
       }
+    }
 
-      function enviarPedido() {
-        const pedido = [
-          `🍕 *PIZZA:* ${get("pizza")}`,
-          get("sabor1") ? `• Sabor 1: ${get("sabor1")}` : "",
-          get("sabor2") ? `• Sabor 2: ${get("sabor2")}` : "",
-          `• Borda: ${get("borda")}`,
-          get("obsPizza") ? `📝 Obs Pizza: ${get("obsPizza")}` : "",
-          get("espaguete") ? `🍝 *Espaguete:* ${get("espaguete")}` : "",
-          get("obsEspaguete") ? `📝 Obs Espaguete: ${get("obsEspaguete")}` : "",
-          get("arrozChapa") ? `🍚 *Arroz na Chapa:* ${get("arrozChapa")}` : "",
-          get("obsArroz") ? `📝 Obs Arroz: ${get("obsArroz")}` : "",
-          get("suco") ? `🥤 *Suco:* ${get("suco")}` : "",
-          `📍 *Endereço:* ${get("endereco")}`,
-          `💳 *Pagamento:* ${get("pagamento")}`,
-          get("troco") ? `💵 *Troco para:* ${get("troco")}` : ""
-        ];
+    let url = "https://wa.me/5533999342180?text=" + encodeURIComponent(texto);
+    window.open(url,"_blank");
+  }
 
-        const texto = encodeURIComponent(pedido.filter(Boolean).join("\n"));
-        const numero = "5533999702202"; // Seu número com DDI
+  function toggleCategoria(id){
+    let div = document.getElementById(id);
+    if(div.style.display==="none") div.style.display="block";
+    else div.style.display="none";
+  }
+</script>
 
-        window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
-      }
-    </script>
-  </main>
 </body>
 </html>
